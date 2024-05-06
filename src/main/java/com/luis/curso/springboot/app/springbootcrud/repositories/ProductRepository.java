@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.luis.curso.springboot.app.springbootcrud.entities.Product;
 
-public interface productRepository extends CrudRepository <Product, Long>{
+public interface ProductRepository extends CrudRepository <Product, Long>{
 }
