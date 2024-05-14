@@ -1,5 +1,6 @@
 package com.luis.curso.springboot.app.springbootcrud.entities;
 
+import com.luis.curso.springboot.app.springbootcrud.validation.IsExistDb;
 import com.luis.curso.springboot.app.springbootcrud.validation.IsRequired;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -11,6 +12,10 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @IsRequired
+    @IsExistDb
+    private String sku;
 
     //@NotBlank(message = "{NotBlank.product.name}")
     @IsRequired(message = "{IsRequired.product.name}")
@@ -55,5 +60,13 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getSku() {
+        return sku;
+    }
+
+    public void setSku(String sku) {
+        this.sku = sku;
     }
 }
