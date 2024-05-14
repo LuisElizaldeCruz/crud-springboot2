@@ -1,5 +1,6 @@
 package com.luis.curso.springboot.app.springbootcrud.entities;
 
+import com.luis.curso.springboot.app.springbootcrud.validation.IsRequired;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -11,7 +12,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "{NotBlank.product.name}")
+    //@NotBlank(message = "{NotBlank.product.name}")
+    @IsRequired(message = "{IsRequired.product.name}")
     @Size(min=3, max=20)
     private String name;
 
@@ -19,7 +21,8 @@ public class Product {
     @NotNull(message="{NotNull.product.price}")
     private Integer price;
 
-    @NotBlank(message = "{NotBlank.product.description}")
+   // @NotBlank(message = "{NotBlank.product.description}")
+    @IsRequired
     private String description;
 
     public Long getId() {
